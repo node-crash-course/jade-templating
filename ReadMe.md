@@ -30,20 +30,32 @@ Right click on the npm manager and click **'Install Missing npm packages**:
 
 [Visual Studio Online](http://azure.microsoft.com/en-us/documentation/videos/building-web-sites-with-visual-studio-online-monaco/) works on all platforms and provides javascript validation, syntax highlting, file diffs and more. It will instantly deploy your app to the cloud.
 
-Get an Azure Account by either getting a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/) or if you're working on a Startup signup for [Bizspark](http//bizspark.com) or tweet at me @sedouard with your plan and I'll get you a bizspark token for free Azure usage for 3 years.
+Get an Azure Account by either getting a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/), a token from me which looks like this:
 
-Create a new website:
+![](ScreenShots/ss0-0.png)
+
+If you're working on a Startup signup for [Bizspark](http//bizspark.com) or tweet at me [@sedouard](http://twitter.com/sedouard] with your plan and I'll get you a bizspark token for free Azure usage for 3 years.
+
+
+After you get your subscription create a new website:
+
+![](ScreenShots/ss21.png)
 
 Then go the config tab, select **Edit in Visual Studio Online** to **Enabled**.
 
+![](ScreenShots/ss22.png)
+
 Because you will be starting with the **StartProject** folder, change the virtual directory setting to have **/** point to **\wwwroot\StartProject\:
+
+![](ScreenSHots/ss23.png)
+
+Click **save** at the bottom.
 
 Go back to the Dashboard and click **Edit in Visual Studio Online**
 
 Delete **hostingstart.html** and clone this repository.
 
-Clone this repsiotry using the Git menu on the left toolbar:
-
+Clone this repository using the Git menu on the left toolbar:
 
 In the console do:
 
