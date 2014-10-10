@@ -12,6 +12,8 @@ In this lab we will use Express to create [**Node recipes**](http://noderecipes.
 
 ## Visual Studio (Windows)
 
+Download and install [Node.js](http://nodejs/org)
+
 Download and install [Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web) and [Node Tools for Visual Studio](https://nodejstools.codeplex.com/)
 
 To get started open up the [**StartProject/ExpressWebsite.sln**](StartProject/ExpressWebsite.sln) in Visual Studio 2013. You will notice a few things different about this project than before.
@@ -88,6 +90,8 @@ Click the 'Run Button'
 
 ## Command Line + Text Editor (Mac/Windows/Linux)
 
+Download and install [Node.js](http://nodejs/org)
+
 If you just want to do things with a plain old editor like Sublime and command line and run locally, clone this repository navigate to the repository and do:
 
 ```bash
@@ -96,17 +100,17 @@ npm install
 node app.js
 ```
 
-It is also easy to deploy to an Azure Website with github by [linking your github repository](http://irisclasson.com/2014/03/04/node-js-on-azure-websites-in-minutes-deploying-with-github/).
+It is also easy to deploy to an Azure Website with github by [linking your github repository](http://irisclasson.com/2014/03/04/node-js-on-azure-websites-in-minutes-deploying-with-github/). Ensure to change your virtual directory as noted in the Visual Studio Online instructions above.
 
-###Jade Files
+### Jade Files
 
 Jade is a language used to create HTML templates on the server. This allows us to write HTML much easier because it avoid having to write as many brackets and also allows for us to **bind** a view to the underlying data model (similar to what Angular.js does in the browser).
 
-###Stylus Files
+### Stylus Files
 
 Stylus is the Jade for CSS. It allows us to write CSS much easier than the raw CSS language.
 
-###App.js
+### App.js
 
 You will notice that there is considerably more stuff in your **app.js** than in the last lab. Lets take a peek at the setup:
 
