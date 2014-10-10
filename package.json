@@ -1,0 +1,14 @@
+{
+  "name": "ExpressWebsite",
+  "version": "0.0.0",
+  "description": "ExpressWebsite",
+  "main": "app.js",
+  "author": {
+    "name": "sedouard",
+    "email": ""
+  },
+  "scripts": {
+    "_comment": "ATTENTION: Change to EndProject/app.js to run the finish app!",
+    "start" : "node StartProject/app.js"  
+  }
+}
