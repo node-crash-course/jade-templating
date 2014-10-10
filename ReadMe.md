@@ -3,7 +3,7 @@ Creating a Cooking Website with Express, Stylus and Jade
 
 #Objective
 
-In this lab we will use Express to create [**Node Recipies**](http://noderecipies.azurewebsites.net) a full fledged website which can scale to mobile browsers as well as to the desktop. By the end of this lab you will know
+In this lab we will use Express to create [**Node recipes**](http://noderecipes.azurewebsites.net) a full fledged website which can scale to mobile browsers as well as to the desktop. By the end of this lab you will know
 
 	1. How to write html templates with jade
 	2. How to render a view with a jade template and a model using a route
@@ -149,14 +149,14 @@ We can add a new block with a bootstrap [**jumbotron**](http://getbootstrap.com/
 ```jade
 	block pageTitle
 		.jumbotron
-			h1 Node Recipies
-			h2 Welcome! Here you will find a variety of scruptious recipies for you to make
+			h1 Node recipes
+			h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 ```
 The block keyword doesn't map to anything in HTML and is only used by jade. This jade code translates to this HTML:
 ```html
 	<div class="jumbotron">
-		<h1>Node Recipies</h1>
-		<h2>Welcome! Here you will find a variety of scruptious recipies for you to make</h2>
+		<h1>Node recipes</h1>
+		<h2>Welcome! Here you will find a variety of scruptious recipes for you to make</h2>
 	</div>
 ```
 Tabs in jade signify child elements in the HTML. You don't have to worry about closing any tabs. **.jumbotron** could be **div.jumbotron** but jade defaults to the **div** element type if you don't specify one. Jade lets you short hand **class='jumbotron'** by simply just using **.classname** instead.
@@ -167,8 +167,8 @@ Your entire index.jade should now be:
 
 	block pageTitle
         .jumbotron
-            h1 Node Recipies
-            h2 Welcome! Here you will find a variety of scruptious recipies for you to make
+            h1 Node recipes
+            h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 
 	block pageContent
 	    h1= title
@@ -185,8 +185,8 @@ We don't want our site to have that pesky 'Express' tag on it so let's remove th
 
 	block pageTitle
 	        .jumbotron
-	            h1 Node Recipies
-	            h2 Welcome! Here you will find a variety of scruptious recipies for you to make
+	            h1 Node recipes
+	            h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 ``` 
 Now we should just have the jumbotron:
 
@@ -289,7 +289,7 @@ Add a reference to **data.js**, our data source for recipes:
 
 **recipes.js**
 ```js
-	var recipies = require('../data/recipeData.js');
+	var recipes = require('../data/recipeData.js');
 
 	exports.list = function (req, res) {	
 
@@ -399,10 +399,10 @@ Let's go back and take a look at **data/recipeData.js**:
 In lieu of using a data source like a database or an API, we will use this file as our data source for recipes. **recipesData** contains 4 exported properties:
 
 	
-1. 	**recipiesData.recipeTypeName** - A key/value pair that maps the recipe type name like 'BBQ' to Barbecue
-2. 	**recipiesData.bbq** - A collection of Barbecue recipes
-3. 	**recipiesData.brunch** - A collection of Brunch recipes
-4. 	**recipiesData.dessert** - A collection of Dessert recipes
+1. 	**recipesData.recipeTypeName** - A key/value pair that maps the recipe type name like 'BBQ' to Barbecue
+2. 	**recipesData.bbq** - A collection of Barbecue recipes
+3. 	**recipesData.brunch** - A collection of Brunch recipes
+4. 	**recipesData.dessert** - A collection of Dessert recipes
 
 Now that we have an idea of what our data looks like we can use express to render a recipe collection to the **recipe.jade** view. We will back the recipe view with the model:
 ```js

@@ -6,7 +6,7 @@ exports.list = function (req, res) {
     var kind = req.params.id;
     console.log('ID' - req.params.id);
     console.log('recipes ' + recipes);
-    res.render('recipe', {
+    res.render('recipie', {
         recipes: {
             list: recipes[kind],
             kind: recipes.recipeTypeName[kind] + ' recipes'

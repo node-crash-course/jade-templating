@@ -31,11 +31,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="data\recipiesData.js" />
+    <Compile Include="data\recipesData.js" />
     <Compile Include="public\lib\bootstrap-3.2.0-dist\js\bootstrap.js" />
     <Compile Include="public\lib\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
     <Compile Include="routes\index.js" />
-    <Compile Include="routes\recipies.js" />
+    <Compile Include="routes\recipes.js" />
     <Compile Include="routes\user.js" />
     <Content Include="package.json" />
     <Content Include="public\lib\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
@@ -71,7 +71,7 @@
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="views\recipie.jade" />
+    <Content Include="views\recipe.jade" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config" />
     <Content Include="bin\ChangeConfig.ps1" />
