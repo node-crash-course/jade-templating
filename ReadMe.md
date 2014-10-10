@@ -28,7 +28,7 @@ Right click on the npm manager and click **'Install Missing npm packages**:
 
 ## Visual Studio Online (Mac/Windows/Linux)
 
-Visual Studio Online works on all platforms and provides javascript validation, syntax highlting, file diffs and more.
+Visual Studio Online works on all platforms and provides javascript validation, syntax highlting, file diffs and more. It will instantly deploy your app to the cloud.
 
 Get an Azure Account by either getting a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/) or if you're working on a Startup signup for [Bizspark](http//bizspark.com) or tweet at me @sedouard with your plan and I'll get you a bizspark token for free Azure usage for 3 years.
 
@@ -44,6 +44,34 @@ Delete **hostingstart.html** and clone this repository.
 
 Clone this repsiotry using the Git menu on the left toolbar:
 
+
+In the console do:
+
+```bash
+cd ./StartProject
+npm install
+```
+
+To run the EndProject folder, change the Virtual Directory of **/** to **\wwwroot\EndProject*** and modify the rootlevel **./package.json** **start** property to point to **./EndProject/app.js**:
+
+```json
+
+{
+  "name": "ExpressWebsite",
+  "version": "0.0.0",
+  "description": "ExpressWebsite",
+  "main": "app.js",
+  "author": {
+    "name": "sedouard",
+    "email": ""
+  },
+  "scripts": {
+    "_comment": "ATTENTION: Change to EndProject/app.js to run the finish app!",
+    "start" : "node StartProject/app.js"  
+  }
+}
+
+```
 Click the 'Run Button'
 
 ## Command Line + Text Editor (Mac/Windows/Linux)
@@ -53,8 +81,11 @@ If you just want to do things with a plain old editor like Sublime and command l
 ```bash
 cd ./StartProject
 npm install
-node ./StartProject/app.js
+node app.js
 ```
+
+It is also easy to deploy to an Azure Website with github by [linking your github repository](http://irisclasson.com/2014/03/04/node-js-on-azure-websites-in-minutes-deploying-with-github/).
+
 ###Jade Files
 
 Jade is a language used to create HTML templates on the server. This allows us to write HTML much easier because it avoid having to write as many brackets and also allows for us to **bind** a view to the underlying data model (similar to what Angular.js does in the browser).
