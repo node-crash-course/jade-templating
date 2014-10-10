@@ -28,7 +28,7 @@ Right click on the npm manager and click **'Install Missing npm packages**:
 
 ## Visual Studio Online (Mac/Windows/Linux)
 
-Visual Studio Online works on all platforms and provides javascript validation, syntax highlting, file diffs and more. It will instantly deploy your app to the cloud.
+[Visual Studio Online](http://azure.microsoft.com/en-us/documentation/videos/building-web-sites-with-visual-studio-online-monaco/) works on all platforms and provides javascript validation, syntax highlting, file diffs and more. It will instantly deploy your app to the cloud.
 
 Get an Azure Account by either getting a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/) or if you're working on a Startup signup for [Bizspark](http//bizspark.com) or tweet at me @sedouard with your plan and I'll get you a bizspark token for free Azure usage for 3 years.
 
