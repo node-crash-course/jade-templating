@@ -10,6 +10,10 @@ In this lab we will use Express to create [**Node recipes**](http://noderecipes.
 
 #Getting Started
 
+## Visual Studio (Windows)
+
+Download and install [Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web) and [Node Tools for Visual Studio](https://nodejstools.codeplex.com/)
+
 To get started open up the [**StartProject/ExpressWebsite.sln**](StartProject/ExpressWebsite.sln) in Visual Studio 2013. You will notice a few things different about this project than before.
 
 The solution contains a few more things than before:
@@ -22,6 +26,35 @@ Right click on the npm manager and click **'Install Missing npm packages**:
 
 ![](ScreenShots/ss0.png)
 
+## Visual Studio Online (Mac/Windows/Linux)
+
+Visual Studio Online works on all platforms and provides javascript validation, syntax highlting, file diffs and more.
+
+Get an Azure Account by either getting a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/) or if you're working on a Startup signup for [Bizspark](http//bizspark.com) or tweet at me @sedouard with your plan and I'll get you a bizspark token for free Azure usage for 3 years.
+
+Create a new website:
+
+Then go the config tab, select **Edit in Visual Studio Online** to **Enabled**.
+
+Because you will be starting with the **StartProject** folder, change the virtual directory setting to have **/** point to **\wwwroot\StartProject\:
+
+Go back to the Dashboard and click **Edit in Visual Studio Online**
+
+Delete **hostingstart.html** and clone this repository.
+
+Clone this repsiotry using the Git menu on the left toolbar:
+
+Click the 'Run Button'
+
+## Command Line + Text Editor (Mac/Windows/Linux)
+
+If you just want to do things with a plain old editor like Sublime and command line and run locally, clone this repository navigate to the repository and do:
+
+```bash
+cd ./StartProject
+npm install
+node ./StartProject/app.js
+```
 ###Jade Files
 
 Jade is a language used to create HTML templates on the server. This allows us to write HTML much easier because it avoid having to write as many brackets and also allows for us to **bind** a view to the underlying data model (similar to what Angular.js does in the browser).
