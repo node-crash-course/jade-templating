@@ -22,11 +22,15 @@ The solution contains a few more things than before:
 
 ![](ScreenShots/ss1.png)
 
-###Installing the require modules
-
 Right click on the npm manager and click **'Install Missing npm packages**:
 
 ![](ScreenShots/ss0.png)
+
+This is the equivalent of opening the command line at your root folder of your project and doing:
+
+```bash
+npm install
+```
 
 ## Visual Studio Online (Mac/Windows/Linux)
 
