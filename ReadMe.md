@@ -53,7 +53,7 @@ Then go the config tab, select **Edit in Visual Studio Online** to **Enabled**.
 
 Because you will be starting with the **StartProject** folder, change the virtual directory setting to have **/** point to **\wwwroot\StartProject\:
 
-![](ScreenSHots/ss23.png)
+![](ScreenShots/ss23.png)
 
 Click **save** at the bottom.
 
