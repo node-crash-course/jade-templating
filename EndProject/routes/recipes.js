@@ -1,16 +1,16 @@
-﻿var recipes = require('../data/recipesData.js');
-
-exports.list = function (req, res) {
-    //get the name of the kind of recipes that was requested
-    var parts = req.originalUrl.split('/');
+﻿var express = require('express');
+var router = express.Router();
+var recipes = require('../data/recipeData');
+/* Renders Recipe view */
+router.get('/:id', function (req, res) {
     var kind = req.params.id;
-    console.log('ID' - req.params.id);
-    console.log('recipes ' + recipes);
-    res.render('recipie', {
+    
+    res.render('recipes', {
         recipes: {
             list: recipes[kind],
-            kind: recipes.recipeTypeName[kind] + ' recipes'
+            kind: recipes.recipeTypeName[kind]
         }
     });
+});
 
-}
+module.exports = router;
