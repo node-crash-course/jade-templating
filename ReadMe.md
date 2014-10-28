@@ -162,31 +162,31 @@ The current solution has 2 jade view files:
 **layout.jade**:
 
 ```js
-    //Layout.jade defines the layout of the entire website. It will contain the navbar and
-	//extension views will populate pageTitle and pageContent blocks
-	doctype html
-	html
-	  head
-	    title= title
-	
-	    //indicate that our site is mobile optimized
-	    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-	
-	    //reference our site-specific css
-	    link(rel='stylesheet', href='/stylesheets/style.css')
-	
-	    //add bootstrap dependencies from CDNjs. Using a CDN to distribute these files puts less pressure
-	    //on our web server and will be delivered faster to the client than our own server.
-	    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
-	    script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
-	    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
-	    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
-	  body
-	    block pageContent
+//Layout.jade defines the layout of the entire website. It will contain the navbar and
+//extension views will populate pageTitle and pageContent blocks
+doctype html
+html
+  head
+  title= title
+
+  //indicate that our site is mobile optimized
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+  //reference our site-specific css
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
+  //add bootstrap dependencies from CDNjs. Using a CDN to distribute these files puts less pressure
+  //on our web server and will be delivered faster to the client than our own server.
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+  body
+  block pageContent
 ```
 You can see that the layout.jade sort-of looks like HTML, except there aren't any brackets. Instead jade uses **tabs**. 
 
-Notice how we have something called **block pageContent**. This tells jade that **layout.jade** will place any block named **pageContent** from an [*extension view*](http://www.devthought.com/code/use-jade-blocks-not-layouts/) it its place.
+Notice how we have something called **block pageContent**. This tells jade that **layout.jade** will place any block named **pageContent** from an [*extension view*](http://www.devthought.com/code/use-jade-blocks-not-layouts/) in its place.
 
 This same jade looks like this in when it is rendered HTML in the browser:
 
@@ -196,11 +196,11 @@ This same jade looks like this in when it is rendered HTML in the browser:
 
 **index.jade**
 ```jade
-    extends layout
+extends layout
 
-	block pageContent
-		h1= title
-		p Welcome to #{title}
+block pageContent
+  h1= title
+  p Welcome to #{title}
 ```
 ##Creating the Home Page
 
@@ -211,10 +211,11 @@ Each page on our website will contain a **pageTitle** and a **pageContent** bloc
 
 **layout.jade**
 ```jade
-    body
-		block pageTitle
-		block pageContent
+body
+  block pageTitle
+  block pageContent
 ```
+
 Now run the website again:
 
 ![](ScreenShots/ss2.png)
@@ -223,18 +224,18 @@ You'll notice that nothing happens. This is because index.jade, the default page
 
 **index.jade**
 ```jade
-    extends layout
+extends layout
 
-	block pageContent
-	  h1= title
-	  p Welcome to #{title}
+block pageContent
+  h1= title
+  p Welcome to #{title}
 ```
 We can add a new block with a bootstrap [**jumbotron**](http://getbootstrap.com/components/#jumbotron) UI element:
 ```jade
-	block pageTitle
-		.jumbotron
-			h1 Node recipes
-			h2 Welcome! Here you will find a variety of scruptious recipes for you to make
+block pageTitle
+  .jumbotron
+    h1 Node recipes
+    h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 ```
 The block keyword doesn't map to anything in HTML and is only used by jade. This jade code translates to this HTML:
 ```html
@@ -247,16 +248,16 @@ Tabs in jade signify child elements in the HTML. You don't have to worry about c
 
 Your entire index.jade should now be:
 ```jade
-    extends layout
+extends layout
 
-	block pageTitle
-        .jumbotron
-            h1 Node recipes
-            h2 Welcome! Here you will find a variety of scruptious recipes for you to make
+block pageTitle
+  .jumbotron
+    h1 Node recipes
+    h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 
-	block pageContent
-	    h1= title
-	    p Welcome to #{title}
+block pageContent
+  h1= title
+  p Welcome to #{title}
 ```
 Run the Website and now we have a landing page message:
 
@@ -265,12 +266,12 @@ Run the Website and now we have a landing page message:
 We don't want our site to have that pesky 'Express' tag on it so let's remove the pageContent block from our default view **index.jade**. It should now look like:
 
 ```jade
-    extends layout
+extends layout
 
-	block pageTitle
-	        .jumbotron
-	            h1 Node recipes
-	            h2 Welcome! Here you will find a variety of scruptious recipes for you to make
+block pageTitle
+  .jumbotron
+    h1 Node recipes
+    h2 Welcome! Here you will find a variety of scruptious recipes for you to make
 ``` 
 Now we should just have the jumbotron:
 
@@ -352,46 +353,59 @@ If you click on any of the items in the navbar you'll see that you get a page no
 
 In the next section we will implement the views for each of the recipe kinds.
 
-##Creating the Recipes Route
+##Creating the Recipes Router
 
 
-To create a new Recipe route add a new javascript file to the routes folder:
+To create a new Recipe route add a new javascript file, **recipes.js** to the routes folder:
 
 ![](ScreenShots/ss9.png)
 
 ![](ScreenShots/ss10.png)
 
-Create a new route handler **list**:
+Create a new route handler
 
 **recipes.js**
 ```js
-    exports.list = function (req, res) {
+var express = require('express');
+var router = express.Router();
 
-	}
+/* Renders Recipe view */
+router.get('/:id', function(req, res) {
+	
+});
+
+module.exports = router;
 ```
+This route handler will handle all (HTTP GET) request from your browser. We will come back to how **'/:id'** defines our route.
+
 Add a reference to **data.js**, our data source for recipes:
 
 **recipes.js**
 ```js
-	var recipes = require('../data/recipeData.js');
+var recipes = require('../data/recipeData.js');
+var express = require('express');
+var router = express.Router();
 
-	exports.list = function (req, res) {	
+/* Renders Recipe view */
+router.get('/:id', function(req, res) {
+	
+});
 
-	}
+module.exports = router;
 ```
-Now in **app.js** add a reference to **./routes/recipes**'
+Now in **app.js** add a reference to **./routes/recipes**' router we just made:
 
 **app.js**
 ```js
 	var recipes = require('./routes/recipes.js');
 ```
-Then add a route that will use the recipe type as the **id** of the recipe collection and assign it to the recipes.list handler:
+Then add the router that will use the base route '/recipes' as  assign it to the recipes.list handler:
 
 **app.js**
 ```js
 	//default route
-	app.get('/', routes.index);
-	app.get('/recipes/:id', recipes.list);
+	app.use('/', routes);
+	app.use('/recipes', recipes);
 ```
 The last piece we need is to create a new view template **recipes.jade** file under the **views** folder:
 
@@ -537,12 +551,12 @@ Now that we've done this, running the website again will show you that we get th
 
 However the page is still blank. First we should add a **pageTitle** block. Layout.jade will place the html in that block first:
 ```jade
-	extends layout
+extends layout
 
-	block pageTitle
-		//this will get displayed in the pageTitle block in layout.jade.
-		//This makes a reference backing data model of this page
-		h1 #{recipes.kind}
+block pageTitle
+  //this will get displayed in the pageTitle block in layout.jade.
+  //This makes a reference backing data model of this page
+  h1 #{recipes.kind}
 ```
 The **#{recipes.kind}** is a jade variable, and it will pull backing data model's **recipes.kind** value as the title of the page.
 
@@ -553,18 +567,20 @@ Run the website again and you will see the clicking on a tab will change the tit
 Now the most important part of course is where we will display the recipe data. First we need to specify a block **pageContent** which also comes from **layout.jade**. This block will be displayed after the **pageTitle** block.
 
 ```jade
-    block pageContent
+extends layout
+block pageContent
 
-		ul
+  ul
 ```
 Now we will use another one of jade's important features. Jade allows us to create programmatic loops to repeat generating repetitive pieces of html. We can use these loops to iterate though the **recipes.list** recipe collection in the backing data model.
 
 ```jade
-	block pageContent
+extends layout
+block pageContent
 
-		ul
-		each recipe in recipes.list
-			h2 #{recipe.name}
+  ul
+  each recipe in recipes.list
+    h2 #{recipe.name}
 ```
 Run your website and see how it looks:
 
@@ -575,14 +591,15 @@ The **each** jade statement will actually iterate through a collection in the un
 We can do a bit better on the UI layout by using the bootstrap [**well**](http://getbootstrap.com/components/#wells)  UI widget.
 
 ```jade
-	block pageContent
+extends layout
+block pageContent
 
-    ul
-    each recipe in recipes.list
-        //create a new well for each recipe model
-        .well
-            h2 #{recipe.name}
-            img(src='#{recipe.photo}')
+  ul
+  each recipe in recipes.list
+  //create a new well for each recipe model
+    .well
+      h2 #{recipe.name}
+      img(src='#{recipe.photo}')
 ```
 
 Reload your webpage and you'll see that a well is created to contain the recipe. We also added the photo using another jade variable **#{recipe.photo}** and which pulls the photo from the recipe data model. This is then placed as the **src** attribute to an **img** html element:
@@ -592,19 +609,20 @@ Reload your webpage and you'll see that a well is created to contain the recipe.
 Now let's add the ingredients:
 
 ```jade
-	block pageContent
+extends layout
+block pageContent
 
-    ul
-    each recipe in recipes.list
-        //create a new well for each recipe model
-        .well
-            h2 #{recipe.name}
-            img(src='#{recipe.photo}')
-            h3 Ingredients
-            h5
-                ul
-                each ingredient in recipe.ingredients
-                    li=ingredient
+  ul
+  each recipe in recipes.list
+    //create a new well for each recipe model
+    .well
+      h2 #{recipe.name}
+      img(src='#{recipe.photo}')
+      h3 Ingredients
+      h5
+      ul
+      each ingredient in recipe.ingredients
+        li=ingredient
 ```
 Within the main **each** loop which iterates through reach recipe, we create new **li** elements within a **ul** element by iterating through the recipe.ingredients collection for each recipe.
 
